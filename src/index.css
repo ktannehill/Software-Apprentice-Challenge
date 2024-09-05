@@ -14,9 +14,14 @@ code {
     monospace;
 }
 
+.header {
+  background: #121920;
+  color: #fff;
+}
+
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem;
   width: 75%;
   margin: auto;
@@ -28,3 +33,19 @@ h2 {
   font-size: 2rem;
 }
 
+.card {
+  background: #eee;
+  padding: 2rem;
+}
+
+.button {
+  background: #f6e24c;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.footer {
+  background: #121920;
+  color: #fff;
+}

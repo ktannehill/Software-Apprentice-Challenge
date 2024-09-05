@@ -6,8 +6,8 @@ const Card = ({ ad }) => {
     console.log(campaign)
 
   return (
-    <div>
-        <h2>Campaign: {campaign}</h2>
+    <div className='card'>
+        <h2>{campaign}</h2>
         <h3>Adset: {adset}</h3>
         <p>Creative: {creative}</p>
         <p>Spend: {spend}</p>
