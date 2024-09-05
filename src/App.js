@@ -39,7 +39,7 @@ function App() {
   const mappedAds = ads.map(ad => <Card key={`${ad.campaign_name}-${ad.ad_name}-${ad.creative_name}-${ad.index}`} ad={ad} />)
 
   return (
-    <div>
+    <div className='card-container'>
       {mappedAds}
     </div>
   );
