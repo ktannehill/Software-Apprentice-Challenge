@@ -1,7 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [ads, setAds] = useState([])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  const fetchData = () => {
+    fetch("http://localhost:3000/fakeDataSet")
+    .then(resp => resp.json())
+    .then(setAds)
+  }
+
+  console.log(ads)
+
   return (
     <div className="App">
       <header className="App-header">
