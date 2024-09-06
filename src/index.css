@@ -14,6 +14,22 @@ code {
     monospace;
 }
 
+#layout {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+#outlet {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
 .header {
   background-color: #121920;
   color: #fff;

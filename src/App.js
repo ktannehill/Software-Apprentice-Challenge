@@ -83,15 +83,17 @@ function App() {
   .map(ad => <Card key={ad.id} ad={ad} />)
 
   return (
-    <div>
+    <div id='layout'>
       <Header />
-      <section className='search'>
-        <Search searchTerm={searchTerm} onSearch={handleSearch} />
-        <Sort sortBy={sortBy} onSort={handleSort} />
-      </section>
-      <main className='card-container'>
-        {mappedAds}
-      </main>
+      <div id='outlet'>
+        <section className='search'>
+          <Search searchTerm={searchTerm} onSearch={handleSearch} />
+          <Sort sortBy={sortBy} onSort={handleSort} />
+        </section>
+        <main className='card-container'>
+          {mappedAds}
+        </main>
+      </div>
       <Footer />
     </div>
   );
