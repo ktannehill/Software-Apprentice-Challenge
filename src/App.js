@@ -3,6 +3,8 @@ import Search from './components/Search'
 import Sort from './components/Sort'
 import Card from './components/Card'
 import { v4 as uuidv4 } from 'uuid'
+import { Header } from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   const [ads, setAds] = useState([])
@@ -81,14 +83,18 @@ function App() {
   .map(ad => <Card key={ad.id} ad={ad} />)
 
   return (
-    <div>
-      <section className='search'>
-        <Search searchTerm={searchTerm} onSearch={handleSearch} />
-        <Sort sortBy={sortBy} onSort={handleSort} />
-      </section>
-      <main className='card-container'>
-        {mappedAds}
-      </main>
+    <div id='layout'>
+      <Header />
+      <div id='outlet'>
+        <section className='search'>
+          <Search searchTerm={searchTerm} onSearch={handleSearch} />
+          <Sort sortBy={sortBy} onSort={handleSort} />
+        </section>
+        <main className='card-container'>
+          {mappedAds}
+        </main>
+      </div>
+      <Footer />
     </div>
   );
 }
