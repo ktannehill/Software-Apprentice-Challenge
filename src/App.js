@@ -16,28 +16,41 @@ function App() {
   const fetchData = () => {
     fetch('http://localhost:3000/fakeDataSet')
     .then(resp => resp.json())
-    .then(data => setAds(standardizeAds(data)))
+    .then(data => setAds(processAds(data)))
     .catch(err => console.log('Error fetching data:', err))
   }
 
-  const standardizeAds = (data) => {
-    const allAds = [
-      ...(data.facebook_ads || []),
-      ...(data.google_analytics || []),
-      ...(data.snapchat_ads || []),
-      ...(data.twitter_ads || [])
-    ];
-  
-    return allAds.map(ad => ({
-      campaign: ad.campaign_name || ad.campaign || ad.utm_campaign,
-      adset: ad.media_buy_name || ad.ad_group || ad.ad_squad_name || ad.utm_medium,
-      creative: ad.ad_name || ad.image_name || ad.creative_name || ad.utm_content,
-      spend: ad.spend || ad.cost || 0, 
-      impressions: ad.impressions || 0, 
-      clicks: ad.clicks || ad.post_clicks || 0, 
-      results: ad.results || 0, 
-      id: uuidv4()
-    }))
+  const processAds = (data) => {
+
+    let platformAds = [
+      ...(data.facebook_ads || []).map(standardizeAd), 
+      ...(data.snapchat_ads || []).map(standardizeAd), 
+      ...(data.twitter_ads || []).map(standardizeAd)
+    ]
+    let googleAnalytics = [...(data.google_analytics || []).map(standardizeAd)]
+
+    mergeResults(platformAds, googleAnalytics)
+
+    return [
+      ...platformAds,
+      ...googleAnalytics
+    ]
+  }
+
+  const standardizeAd = (ad) => ({
+    campaign: ad.campaign_name || ad.campaign || ad.utm_campaign,
+    adset: ad.media_buy_name || ad.ad_group || ad.ad_squad_name || ad.utm_medium,
+    creative: ad.ad_name || ad.image_name || ad.creative_name || ad.utm_content,
+    spend: ad.spend || ad.cost || 0,
+    impressions: ad.impressions || 0,
+    clicks: ad.clicks || ad.post_clicks || 0,
+    results: ad.results || 0,
+    id: uuidv4()
+  });
+
+  const mergeResults = (platformAds, googleAnalytics) => {
+    console.log("PFA:", platformAds)
+    console.log("GA:", googleAnalytics)
   }
 
   const handleSearch = (e) => {
