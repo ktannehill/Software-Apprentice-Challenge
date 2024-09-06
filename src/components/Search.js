@@ -2,12 +2,14 @@ import React from 'react'
 
 const Search = ({ searchTerm, onSearch }) => {
   return (
-    <input
-        type='text'
-        placeholder='Search...'
-        value={searchTerm}
-        onChange={onSearch}
-    />
+    <label htmlFor='search'> Search: 
+        <input
+            type='text'
+            placeholder='Enter campaign name'
+            value={searchTerm}
+            onChange={onSearch}
+        />
+    </label>
   )
 }
 

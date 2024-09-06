@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import Search from './components/Search'
+import Sort from './components/Sort'
 import Card from './components/Card'
 import { v4 as uuidv4 } from 'uuid'
 
 function App() {
   const [ads, setAds] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
+  const [sortBy, setSortBy] = useState('')
 
   useEffect(() => {
     fetchData()
@@ -41,6 +43,10 @@ function App() {
   const handleSearch = (e) => {
     setSearchTerm(e.target.value)
   }
+  
+  const handleSort = (e) => {
+    setSortBy(e.target.value)
+  }
 
   const mappedAds = ads?.filter(ad => ad.campaign.toLowerCase().includes(searchTerm.toLowerCase()))
     .map(ad => <Card key={ad.id} ad={ad} />)
@@ -49,6 +55,7 @@ function App() {
     <div>
       <section className='search'>
         <Search searchTerm={searchTerm} onSearch={handleSearch} />
+        <Sort sortBy={sortBy} onSort={handleSort} />
       </section>
       <main className='card-container'>
         {mappedAds}
