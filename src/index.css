@@ -24,7 +24,7 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem;
   width: 75%;
-  margin: auto;
+  margin: 2rem auto;
 }
 
 h2 {
@@ -47,6 +47,7 @@ h2 {
 
 .search {
   background-color: #1b46c0;
+  padding: 2rem;
 }
 
 .footer {

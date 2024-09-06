@@ -47,10 +47,12 @@ function App() {
 
   return (
     <div>
-      <Search searchTerm={searchTerm} onSearch={handleSearch} />
-      <div className='card-container'>
+      <section className='search'>
+        <Search searchTerm={searchTerm} onSearch={handleSearch} />
+      </section>
+      <main className='card-container'>
         {mappedAds}
-      </div>
+      </main>
     </div>
   );
 }
