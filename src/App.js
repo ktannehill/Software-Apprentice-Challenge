@@ -46,19 +46,17 @@ function App() {
     clicks: ad.clicks || ad.post_clicks || 0,
     results: ad.results || 0,
     id: uuidv4()
-  });
+  })
 
   const mergeResults = (platformAds, googleAnalytics) => {
     platformAds.forEach(pAd => {
-      let match = googleAnalytics.find(gAd => {
+      let matches = googleAnalytics.filter(gAd => {
         return gAd.campaign === pAd.campaign 
         && (gAd.adset === pAd.adset 
         || gAd.creative === pAd.creative)
       })
 
-      if (match) {
-        pAd.results = match.results
-      }
+      matches.forEach(match => pAd.results += match.results)
     })
   }
 
