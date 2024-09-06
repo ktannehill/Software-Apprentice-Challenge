@@ -7,8 +7,8 @@ const Sort = ({ sortBy, onSort }) => {
     }
 
   return (
-    <div>
-        <fieldset>
+    <div className='flex'>
+        <fieldset className='flex'>
             <legend>Sort by Spend:</legend>
             <label htmlFor='spend-asc'>
                 <input
