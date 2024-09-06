@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Search from './components/Search'
 import Card from './components/Card'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
   const [ads, setAds] = useState([])
@@ -33,6 +34,7 @@ function App() {
       impressions: ad.impressions || 0, 
       clicks: ad.clicks || ad.post_clicks || 0, 
       results: ad.results || 0, 
+      id: uuidv4()
     }))
   }
 
@@ -40,8 +42,8 @@ function App() {
     setSearchTerm(e.target.value)
   }
 
-  const mappedAds = ads?.filter(ad => ad.campaign_name.toLowerCase().includes(searchTerm.toLowerCase()))
-    .map(ad => <Card key={`${ad.campaign_name}-${ad.ad_name}-${ad.creative_name}-${ad.index}`} ad={ad} />)
+  const mappedAds = ads?.filter(ad => ad.campaign.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map(ad => <Card key={ad.id} ad={ad} />)
 
   return (
     <div>
