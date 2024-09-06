@@ -52,7 +52,7 @@ h1 {
   font-size: 3rem;
   font-family:'Times New Roman', Times, serif;
   color: #1b46c0;
-  flex-grow: 1;
+  flex-grow: 2;
   position: relative;
   z-index: 100;
   line-height: 2rem;
@@ -63,14 +63,15 @@ h1 {
 .header p {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-transform: uppercase;
+  flex-grow: 1;
 }
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem;
   width: 75%;
-  margin: 2rem auto;
+  margin: 3rem auto;
 }
 
 h2 {
@@ -136,4 +137,12 @@ button:hover {
 .footer {
   background: #121920;
   color: #fff;
+  padding: 2rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h3 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  line-height: 2.75rem;
 }

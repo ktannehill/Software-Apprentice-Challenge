@@ -6,7 +6,7 @@ const Card = ({ ad }) => {
   return (
     <div className='card'>
         <h2>{campaign}</h2>
-        <h3>Adset: {adset}</h3>
+        <p>Adset: {adset}</p>
         <p>Creative: {creative}</p>
         <p>Spend: {spend}</p>
         <p>Impressions: {impressions}</p>

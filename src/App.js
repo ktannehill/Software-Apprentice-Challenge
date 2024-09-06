@@ -4,6 +4,7 @@ import Sort from './components/Sort'
 import Card from './components/Card'
 import { v4 as uuidv4 } from 'uuid'
 import { Header } from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   const [ads, setAds] = useState([])
@@ -91,6 +92,7 @@ function App() {
       <main className='card-container'>
         {mappedAds}
       </main>
+      <Footer />
     </div>
   );
 }
