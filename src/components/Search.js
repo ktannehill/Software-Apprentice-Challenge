@@ -5,6 +5,7 @@ const Search = ({ searchTerm, onSearch }) => {
     <label htmlFor='search'> Search: 
         <input
             type='text'
+            id='search'
             placeholder='Enter campaign name'
             value={searchTerm}
             onChange={onSearch}

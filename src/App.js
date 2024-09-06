@@ -44,12 +44,21 @@ function App() {
     setSearchTerm(e.target.value)
   }
   
-  const handleSort = (e) => {
-    setSortBy(e.target.value)
+  const handleSort = (val) => {
+    setSortBy(val)
   }
 
   const mappedAds = ads?.filter(ad => ad.campaign.toLowerCase().includes(searchTerm.toLowerCase()))
-    .map(ad => <Card key={ad.id} ad={ad} />)
+  .sort((a, b) => {
+    if (sortBy === 'spend_asc') {
+      return a.spend - b.spend
+    } else if (sortBy === 'spend_desc') {
+      return b.spend - a.spend
+    } else {
+      return 0
+    }
+  })  
+  .map(ad => <Card key={ad.id} ad={ad} />)
 
   return (
     <div>

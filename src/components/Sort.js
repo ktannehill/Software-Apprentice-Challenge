@@ -1,6 +1,11 @@
 import React from 'react'
 
 const Sort = ({ sortBy, onSort }) => {
+
+    const handleSort = (e) => {
+        onSort(e.target.value)
+    }
+
   return (
     <div>
         <fieldset>
@@ -12,7 +17,7 @@ const Sort = ({ sortBy, onSort }) => {
                     name='sort'
                     value='spend_asc'
                     checked={sortBy === 'spend_asc'}
-                    onChange={onSort}
+                    onChange={handleSort}
                 />
                 Ascending
             </label>
@@ -23,11 +28,12 @@ const Sort = ({ sortBy, onSort }) => {
                     name='sort'
                     value='spend_desc'
                     checked={sortBy === 'spend_desc'}
-                    onChange={onSort}
+                    onChange={handleSort}
                 />
                 Descending
             </label>
         </fieldset>
+        <button onClick={() => onSort('')}>Clear</button>
     </div>
   )
 }
