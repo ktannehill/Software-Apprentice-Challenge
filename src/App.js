@@ -53,7 +53,7 @@ function App() {
       let match = googleAnalytics.find(gAd => {
         return gAd.campaign === pAd.campaign 
         && (gAd.adset === pAd.adset 
-        && gAd.creative === pAd.creative)
+        || gAd.creative === pAd.creative)
       })
 
       if (match) {
