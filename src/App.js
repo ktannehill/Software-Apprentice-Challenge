@@ -3,6 +3,7 @@ import Search from './components/Search'
 import Sort from './components/Sort'
 import Card from './components/Card'
 import { v4 as uuidv4 } from 'uuid'
+import { Header } from './components/Header';
 
 function App() {
   const [ads, setAds] = useState([])
@@ -82,6 +83,7 @@ function App() {
 
   return (
     <div>
+      <Header />
       <section className='search'>
         <Search searchTerm={searchTerm} onSearch={handleSearch} />
         <Sort sortBy={sortBy} onSort={handleSort} />
