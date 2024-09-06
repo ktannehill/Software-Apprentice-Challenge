@@ -49,8 +49,17 @@ function App() {
   });
 
   const mergeResults = (platformAds, googleAnalytics) => {
-    console.log("PFA:", platformAds)
-    console.log("GA:", googleAnalytics)
+    platformAds.forEach(pAd => {
+      let match = googleAnalytics.find(gAd => {
+        return gAd.campaign === pAd.campaign 
+        && (gAd.adset === pAd.adset 
+        && gAd.creative === pAd.creative)
+      })
+
+      if (match) {
+        pAd.results = match.results
+      }
+    })
   }
 
   const handleSearch = (e) => {
