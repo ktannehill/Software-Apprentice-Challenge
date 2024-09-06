@@ -39,11 +39,20 @@ h2 {
 }
 
 button {
-  background-color: #f6e24c;
+  background-color: #f6e24b;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
   color: #000;
+  border: 1px solid #000;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: 0.5s;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: #f8eb81;
+  box-shadow: 5px 5px 0px #000
 }
 
 .search {
