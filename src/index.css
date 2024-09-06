@@ -38,16 +38,39 @@ h2 {
   padding: 2rem;
 }
 
-.button {
+button {
   background-color: #f6e24c;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
+  color: #000;
 }
 
 .search {
   background-color: #1b46c0;
+  color: #fff;
   padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.search div {
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#search {
+  max-width: 90%;
+  min-width: 75%
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
 }
 
 .footer {
