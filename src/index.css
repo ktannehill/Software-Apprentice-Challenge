@@ -15,7 +15,7 @@ code {
 }
 
 .header {
-  background: #121920;
+  background-color: #121920;
   color: #fff;
 }
 
@@ -34,15 +34,19 @@ h2 {
 }
 
 .card {
-  background: #eee;
+  background-color: #eee;
   padding: 2rem;
 }
 
 .button {
-  background: #f6e24c;
+  background-color: #f6e24c;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding: 1rem;
   border-radius: 10px;
+}
+
+.search {
+  background-color: #1b46c0;
 }
 
 .footer {

@@ -3,8 +3,6 @@ import React from 'react'
 const Card = ({ ad }) => {
     const { campaign, adset, creative, spend, impressions, clicks, results } = ad
 
-    console.log(campaign)
-
   return (
     <div className='card'>
         <h2>{campaign}</h2>

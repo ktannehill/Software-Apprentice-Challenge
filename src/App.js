@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
+import Search from './components/Search'
 import Card from './components/Card'
 
 function App() {
   const [ads, setAds] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
     fetchData()
   }, [])
 
   const fetchData = () => {
-    fetch("http://localhost:3000/fakeDataSet")
+    fetch('http://localhost:3000/fakeDataSet')
     .then(resp => resp.json())
     .then(data => setAds(standardizeAds(data)))
-    .catch(err => console.log("Error fetching data:", err))
+    .catch(err => console.log('Error fetching data:', err))
   }
 
   const standardizeAds = (data) => {
@@ -31,16 +33,22 @@ function App() {
       impressions: ad.impressions || 0, 
       clicks: ad.clicks || ad.post_clicks || 0, 
       results: ad.results || 0, 
-    }));
-  };
+    }))
+  }
 
-  console.log(ads)
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value)
+  }
 
-  const mappedAds = ads.map(ad => <Card key={`${ad.campaign_name}-${ad.ad_name}-${ad.creative_name}-${ad.index}`} ad={ad} />)
+  const mappedAds = ads?.filter(ad => ad.campaign_name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .map(ad => <Card key={`${ad.campaign_name}-${ad.ad_name}-${ad.creative_name}-${ad.index}`} ad={ad} />)
 
   return (
-    <div className='card-container'>
-      {mappedAds}
+    <div>
+      <Search searchTerm={searchTerm} onSearch={handleSearch} />
+      <div className='card-container'>
+        {mappedAds}
+      </div>
     </div>
   );
 }
